@@ -43,21 +43,27 @@
 Are you with us?</h2>
       <h3>Full website and store coming soon!</h3>
       <h3>Join us and get notified of our launch.</h3>
-      <form>
-        <input type="email" placeholder="Enter your email">
+      <form name="newsletter" method="POST" netlify-honeypot="bot-field" data-netlify="true" >
+        <div class="hidden">
+          <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+        </div>
+        <input type="email" name="email" placeholder="Enter your email">
         <input type="submit" value="Notify Me!">
       </form>
     </div>
   </div>
   <div class="cuffswrap">
-    <form class="cuffs">
+    <form name="talent" method="POST" netlify-honeypot="bot-field" data-netlify="true" class="cuffs">
       <h2>Do you know talent?</h2>
+      <div class="hidden">
+        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+      </div>
       <label for="fullname">Your Name:</label>
       <input id="fullname" name="fullname" type="text" placeholder="Firstname Lastname">
       <label for="email">Your Email:</label>
       <input id="email" name="email" type="email" placeholder="name@example.com">
       <label for="recommended">Message:</label>
-      <textarea id="recommended" name="recommended" placeholder="Let us know about the artist you'd like
+      <textarea id="recommended" name="message" placeholder="Let us know about the artist you'd like
 to recommend."></textarea>
       <input type="submit" value="Send">
     </form>      
@@ -65,6 +71,35 @@ to recommend."></textarea>
   <footer>
     <h3>© 2020 Con Cards LLC - All Rights Reserved</h3>
   </footer>
-</body>
+  <script>
+function netlifyForm(form) {
+  var formdata = new FormData();
+  console.log(form.name);
+  formdata.append('form-name', form.name);
+  var inputs = form.querySelectorAll("input");
+  for (var i=0; i < inputs.length; i++) {
+    if (inputs[i].type != "submit") {
+      formdata.append(inputs[i].name, encodeURIComponent(inputs[i].value));
+    }
+  }
+  var textarea = form.querySelector("textarea");
+  if (textarea) {
+    formdata.append(textarea.name, encodeURIComponent(textarea.value));
+  }
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', form.action);
+  xhr.send(formdata);
+  alert("Thank you!");
+}
+document.querySelector("form[name='newsletter']").onsubmit = function(e){
+  e.preventDefault();
+  netlifyForm(e.target);
+};
 
+document.querySelector("form.cuffs").onsubmit = function(e){
+  e.preventDefault();
+  netlifyForm(e.target);
+};
+  </script>
+</body>
 </html>

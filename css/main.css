@@ -138,12 +138,12 @@ header div p {
   background-position: 17% 50%;
   background-size: cover;
 }
-.newsletter div {
+.newsletter > div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.newsletter div h2 {
+.newsletter > div h2 {
   margin: 0 14% 32px;
   color: #3c2816;
   font-family: acumin-pro, sans-serif;
@@ -153,7 +153,7 @@ header div p {
   line-height: 29px;
   text-align: center;
 }
-.newsletter div h3 {
+.newsletter > div h3 {
   margin: 0 12px;
   color: #3c2816;
   font-family: acumin-pro, sans-serif;
@@ -163,13 +163,13 @@ header div p {
   line-height: 23.89px;
   text-align: center;
 }
-.newsletter div form {
+.newsletter > div form {
   display: flex;
   margin-top: 22px;
   width: 100%;
   max-width: 362px;
 }
-.newsletter div input[type="email"] {
+.newsletter > div input[type="email"] {
   height: 40px;
   border-left: 1px solid #bbbbbb;
   border-top: 1px solid #bbbbbb;
@@ -184,7 +184,7 @@ header div p {
   font-size: 12.79px;
   line-height: 23.18px;
 }
-.newsletter div input[type="submit"] {
+.newsletter > div input[type="submit"] {
   background-color: #e4730d;
   height: 40px;
   border-top-right-radius: 10px;
@@ -329,6 +329,9 @@ form {
   padding: 0 10px;
   box-sizing: border-box;
 }
+.hidden {
+  display: none;
+}
 @media only screen and (min-width: 60em) {
   img#logo {
     position: absolute;
@@ -387,11 +390,11 @@ form {
   .newsletter {
     min-height: 506px;
   }
-  .newsletter div h2 {
+  .newsletter > div h2 {
     margin: 0 12% 32px;
     font-size: 24px;
   }
-  .newsletter div h3 {
+  .newsletter > div h3 {
     font-size: 24px;
     line-height: 29px;
   }
@@ -414,7 +417,7 @@ form {
   }
 }
 @media only screen and (min-width: 1200px) {
-  .newsletter div h2 {
+  .newsletter > div h2 {
     margin: 0 32px 32px;
   }
 }
