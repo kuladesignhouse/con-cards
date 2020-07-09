@@ -197,6 +197,17 @@ header div p {
   padding: 0 16px;
   border: none;
 }
+.newsletter h4#msg1 {
+  color: #3c2816;
+  font-family: acumin-pro, sans-serif;
+  font-style: normal;
+  text-align: center;
+  margin: 10px 0px;
+  visibility: hidden;
+}
+.newsletter h4#msg1.success {
+  visibility: visible;
+}
 ::placeholder {
   color: #bcb7b3;
   font-family: acumin-pro, sans-serif;

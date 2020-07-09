@@ -50,6 +50,7 @@ Are you with us?</h2>
         <input type="email" name="email" placeholder="Enter your email">
         <input type="submit" value="Notify Me!">
       </form>
+      <h4 id="msg1">Thanks for signing up!</h4>
     </div>
   </div>
   <div class="cuffswrap">
@@ -65,7 +66,7 @@ Are you with us?</h2>
       <label for="recommended">Message:</label>
       <textarea id="recommended" name="message" placeholder="Let us know about the artist you'd like
 to recommend."></textarea>
-      <input type="submit" value="Send">
+      <input type="submit" id="btn2" value="Send">
     </form>      
   </div>
   <footer>
@@ -74,7 +75,6 @@ to recommend."></textarea>
   <script>
 function netlifyForm(form) {
   var formdata = new FormData();
-  console.log(form.name);
   formdata.append('form-name', form.name);
   var inputs = form.querySelectorAll("input");
   for (var i=0; i < inputs.length; i++) {
@@ -87,9 +87,25 @@ function netlifyForm(form) {
     formdata.append(textarea.name, encodeURIComponent(textarea.value));
   }
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', form.action);
+  xhr.open('POST',form.action, true);  
+  xhr.onload = function (e) {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        if (form.name == "newsletter") {
+          document.getElementById("msg1").className = "success";
+        } else {
+          document.getElementById("btn2").value = "Thanks for signing up!";
+          document.getElementById("btn2").disabled = true;
+        }
+      } else {
+        console.error(xhr.statusText);
+      }
+    }
+  };
+  xhr.onerror = function (e) {
+    console.error(xhr.statusText);
+  };
   xhr.send(formdata);
-  alert("Thank you!");
 }
 document.querySelector("form[name='newsletter']").onsubmit = function(e){
   e.preventDefault();
