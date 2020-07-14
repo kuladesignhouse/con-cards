@@ -81,8 +81,9 @@ function netlifyForm(form) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
         for (var i = 0, input; input = form.elements[i++];) {
+          console.log(input.tagName);
           if (input.tagName == "INPUT" && input.type != "submit") {
-            input.value == "";
+            input.value = "";
           }
         }
         if (form.name == "newsletter") {
