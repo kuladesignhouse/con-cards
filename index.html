@@ -86,6 +86,9 @@ function netlifyForm(form) {
   if (textarea) {
     formdata.append(textarea.name, encodeURIComponent(textarea.value));
   }
+
+  formdata = new URLSearchParams( formdata ).toString();
+
   var xhr = new XMLHttpRequest();
   xhr.open('POST',form.action, true);  
   xhr.onload = function (e) {
