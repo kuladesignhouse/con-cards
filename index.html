@@ -75,7 +75,6 @@ to recommend."></textarea>
   <script>
 function netlifyForm(form) {
   var formdata = new FormData();
-  formdata.append('form-name', form.name);
   var inputs = form.querySelectorAll("input");
   for (var i=0; i < inputs.length; i++) {
     if (inputs[i].type != "submit") {
@@ -86,9 +85,6 @@ function netlifyForm(form) {
   if (textarea) {
     formdata.append(textarea.name, encodeURIComponent(textarea.value));
   }
-
-  formdata = new URLSearchParams( formdata ).toString();
-
   var xhr = new XMLHttpRequest();
   xhr.open('POST',form.action, true);  
   xhr.onload = function (e) {
