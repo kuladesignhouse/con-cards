@@ -75,28 +75,25 @@ to recommend."></textarea>
   <script>
 function netlifyForm(form) {
   var formdata = new FormData(form);
-  /*
-  var inputs = form.querySelectorAll("input");
-  for (var i=0; i < inputs.length; i++) {
-    if (inputs[i].type != "submit") {
-      formdata.append(inputs[i].name, encodeURIComponent(inputs[i].value));
-    }
-  }
-  var textarea = form.querySelector("textarea");
-  if (textarea) {
-    formdata.append(textarea.name, encodeURIComponent(textarea.value));
-  }
-  */
   var xhr = new XMLHttpRequest();
   xhr.open('POST', form.action, true);  
   xhr.onload = function (e) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
+        for (var i=0; i < form.inputs; i++) {
+          if (form.inputs[i].type != "submit") {
+            form.inputs[i].value == "";
+          }
+        }
         if (form.name == "newsletter") {
           document.getElementById("msg1").className = "success";
         } else {
-          document.getElementById("btn2").value = "Thanks for signing up!";
+          document.getElementById("btn2").value = "Great! We'll be in touch soon!";
           document.getElementById("btn2").disabled = true;
+          var textarea = form.querySelector("textarea");
+          if (textarea) {
+            textarea.value = "";
+          }
         }
       } else {
         console.error(xhr.statusText);
