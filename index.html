@@ -43,7 +43,7 @@
 Are you with us?</h2>
       <h3>Full website and store coming soon!</h3>
       <h3>Join us and get notified of our launch.</h3>
-      <form name="newsletter" method="POST" netlify-honeypot="bot-field" data-netlify="true" >
+      <form name="newsletter" method="POST" netlify-honeypot="bot-field" data-netlify="true" enctype="application/x-www-form-urlencoded" >
         <div class="hidden">
           <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
         </div>
@@ -54,7 +54,7 @@ Are you with us?</h2>
     </div>
   </div>
   <div class="cuffswrap">
-    <form name="talent" method="POST" netlify-honeypot="bot-field" data-netlify="true" class="cuffs">
+    <form class="cuffs" name="talent" method="POST" netlify-honeypot="bot-field" data-netlify="true" enctype="application/x-www-form-urlencoded">
       <h2>Do you know talent?</h2>
       <div class="hidden">
         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
@@ -86,7 +86,7 @@ function netlifyForm(form) {
     formdata.append(textarea.name, encodeURIComponent(textarea.value));
   }
   var xhr = new XMLHttpRequest();
-  xhr.open('POST',form.action, true);  
+  xhr.open('POST', form.action, true);  
   xhr.onload = function (e) {
     if (xhr.readyState === 4) {
       if (xhr.status === 200) {
