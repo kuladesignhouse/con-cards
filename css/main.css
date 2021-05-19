@@ -1,22 +1,32 @@
-html,body
-{
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden;
-}
-* {
-  box-sizing: border-box;
-}
+/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
 html {
   color: #222;
   font-size: 1em;
   line-height: 1.4;
 }
-body {
-  box-sizing:border-box;
-}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Vendor-prefixed and regular ::selection selectors cannot be combined:
+ * https://stackoverflow.com/a/16982510/7133471
+ *
+ * Customize the background color to match your design.
+ */
+
 ::-moz-selection {
   background: #b3d4fc;
   text-shadow: none;
@@ -26,409 +36,228 @@ body {
   background: #b3d4fc;
   text-shadow: none;
 }
-.top {
-  position: relative;
-}
-#topbar {
-  background-color: #3a342e;
-  height: 12px;
-}
-img#logo {
-  position: absolute;
-  left: calc(50% - 100px);
-  right: calc(50% - 100px);
-  top: 0;
-  width: 193px;
-  height: 154px;
-  /*box-shadow: 0px 7px 15.48px 2.52px rgba(0, 0, 0, 0.25);
-  text-shadow: 0px 7px 15.48px rgba(0, 0, 0, 0.25);*/
-}
-header {
-  background: -webkit-linear-gradient(top, rgb(254, 249, 240) 0%, rgb(230, 225, 215) 100%);
-  background: -o-linear-gradient(top, rgb(254, 249, 240) 0%, rgb(230, 225, 215) 100%);
-  background: -ms-linear-gradient(top, rgb(254, 249, 240) 0%, rgb(230, 225, 215) 100%);
-  background: -moz-linear-gradient(top, rgb(254, 249, 240) 0%, rgb(230, 225, 215) 100%);
-  background: linear-gradient(to bottom, rgb(254, 249, 240) 0%, rgb(230, 225, 215) 100%);
-  box-sizing:border-box;
-  padding: 10px;
-}
-header #poster {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-header #poster > div {
-  font-family: acumin-pro, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  color: #3c2816;
-}
-header #poster div a {
-  font-family: acumin-pro, sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  color: #3c2816;
-}
-header img {
-  margin: 86px 0px 0px;
-  width: 100%;
-  height: auto;
-  box-sizing: border-box;
-  max-width: 438px;
-}
-header h1 {
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
   padding: 0;
-  color: #3c2816;
-  font-family: acumin-pro, sans-serif;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 24px;
-  line-height: 22.3px;
 }
-header div:nth-child(2) {
-  padding: 10px 19px 0px;
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
 }
-header div p {
-  padding: 0 0px 58px;
-  margin-bottom: 0;
-  font-family: acumin-pro, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 23px;
-  color: #3c2816;
-}
-.pencil {
-  background-image: url('../img/mobilepencil.png');
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: cover;
-  min-height: 286px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.pencil > div {
-  margin: 0 32px;
-}
-.pencil div h1 {
-  color: #3c2816;
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
   margin: 0;
-  font-family: acumin-pro, sans-serif;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 24px;
-  line-height: 22.3px;
+  padding: 0;
 }
-.pencil div p {
-  color: #3c2816;
-  font-family: acumin-pro, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 23px;
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
 }
-.newsletter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 333px;
-  background-image: url('../img/newsletter.png');
-  background-repeat: no-repeat;
-  background-position: 17% 50%;
-  background-size: cover;
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
 }
-.newsletter > div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
 }
-.newsletter > div h2 {
-  margin: 0 14% 32px;
-  color: #3c2816;
-  font-family: acumin-pro, sans-serif;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 29px;
-  text-align: center;
+
+/*
+ * Extends the .sr-only class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.sr-only.focusable:active,
+.sr-only.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
 }
-.newsletter > div h3 {
-  margin: 0 12px;
-  color: #3c2816;
-  font-family: acumin-pro, sans-serif;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 23.89px;
-  text-align: center;
-}
-.newsletter > div form {
-  display: flex;
-  margin-top: 22px;
-  width: 100%;
-  max-width: 362px;
-}
-.newsletter > div input[type="email"] {
-  height: 40px;
-  border-left: 1px solid #bbbbbb;
-  border-top: 1px solid #bbbbbb;
-  border-bottom: 1px solid #bbbbbb;
-  border-right: none;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  padding: 0 18px;
-  width: 100%;
-  font-family: acumin-pro, sans-serif;
-  font-weight: 400;
-  font-size: 12.79px;
-  line-height: 23.18px;
-}
-.newsletter > div input[type="submit"] {
-  background-color: #e4730d;
-  height: 40px;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  color: #fff;
-  font-family: acumin-pro, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 23.89px;
-  padding: 0 16px;
-  border: none;
-}
-.newsletter h4#msg1 {
-  color: #3c2816;
-  font-family: acumin-pro, sans-serif;
-  font-style: normal;
-  text-align: center;
-  margin: 10px 0px;
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
   visibility: hidden;
 }
-.newsletter h4#msg1.success {
-  visibility: visible;
-}
-::placeholder {
-  color: #bcb7b3;
-  font-family: acumin-pro, sans-serif;
-  font-weight: 400;
-  font-size: 12.79px;
-  line-height: 23.18px;
-  opacity: 1; /* Firefox */
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
- color: #bcb7b3;
-  font-family: acumin-pro, sans-serif;
-  font-weight: 400;
-  font-size: 12.79px;
-  line-height: 23.18px;
+.clearfix::after {
+  clear: both;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
-  color: #bcb7b3;
-  font-family: acumin-pro, sans-serif;
-  font-weight: 400;
-  font-size: 12.79px;
-  line-height: 23.18px;
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   These examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+  /* Style adjustments for viewports that meet the condition */
 }
-.cuffswrap {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f4f5f5;
-  background-image: url('../img/mobilecuffs.png');
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  background-size: cover;
-  min-height: 553px;
+
+@media print,
+  (-webkit-min-device-pixel-ratio: 1.25),
+  (min-resolution: 1.25dppx),
+  (min-resolution: 120dpi) {
+  /* Style adjustments for high resolution devices */
 }
-form.cuffs {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 362px;
-  box-sizing: border-box;
-}
-form.cuffs h2 {
-  margin: 38px 0 0;
-  color: #3c2816;
-  font-family: acumin-pro, sans-serif;
-  font-style: normal;
-  font-weight: 800;
-  font-size: 20px;
-  line-height: 29px;
-  text-align: center;
-}
-form.cuffs label {
-  width: calc(100% - 60px);
-  margin: 16px 0px 8px 60px;
-  color: #3c2816;
-  font-family: acumin-pro, sans-serif;
-  font-weight: 400;
-  font-size: 13.59px;
-  line-height: 23.18px;
-}
-form.cuffs input[type="text"],
-form.cuffs input[type="email"] {
-  height: 40px;
-  border: 1px solid #bbbbbb;
-  border-radius: 10px;
-  padding: 0 18px;
-  font-family: acumin-pro, sans-serif;
-  font-weight: 400;
-  font-size: 12.79px;
-  line-height: 23.18px;
-  width: calc(100% - 120px);
-  margin: 0 60px;
-}
-form.cuffs input[type="submit"] {
-  background-color: #e4730d;
-  height: 40px;
-  border-radius: 10px;
-  color: #fff;
-  font-family: acumin-pro, sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 23.89px;
-  padding: 0 16px;
-  width: calc(100% - 88px);
-  margin: 16px 44px 89px;
-  border: none;
-}
-textarea {
-  resize: none;
-  height: 163px;
-  border-radius: 10px;
-  border: 1px solid #bbbbbb;
-  width: calc(100% - 120px);
-  padding: 18px 18px;
-  margin: 0 60px 0;
-  font-family: acumin-pro, sans-serif;
-  font-weight: 400;
-  font-size: 12.79px;
-  line-height: 23.18px;
-}
-form.cuffs * {
-  box-sizing: border-box;
-}
-form.cuffs input[type="text"],
-form.cuffs input[type="email"],
-form.cuffs input[type="submit"],
-textarea,
-form.cuffs label {
-  width: 100%;
-  max-width: 362px;
-}
-footer {
-  height: 50px;
-  background-color: #4e4944;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-footer h3 {
-  color: #fff;
-  font-family: acumin-pro, sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 12.47px;
-  line-height: 21.26px;
-}
-form {
-  padding: 0 10px;
-  box-sizing: border-box;
-}
-.hidden {
-  display: none;
-}
-@media only screen and (min-width: 60em) {
-  img#logo {
-    position: absolute;
-    left: 96px;
-    right: none;
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
   }
-  header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 86px 4% 44px;
+
+  a,
+  a:visited {
+    text-decoration: underline;
   }
-  header img {
-    margin: 0px 0px 0px;
-    width: 420px;
-    height: 426px;
+
+  a[href]::after {
+    content: " (" attr(href) ")";
   }
-  header h1 {
-    font-size: 37px;
-    line-height: 29px;
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
   }
-  header div:nth-child(2) {
-    padding: 0px 20px 0px;
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
   }
-  header div p {
-    font-size: 20px;
-    line-height: 29px;
+
+  pre {
+    white-space: pre-wrap !important;
   }
-  .pencil {
-    background-image: url('../img/pencil.png');
-    background-repeat: no-repeat;
-    background-position: 65% top;
-    background-size: cover;
-    min-height: 286px;
-    align-items: center;
-  
-    justify-content: flex-start;
-    padding-left: 20%;
-    min-height: 424px;
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
   }
-  .pencil > div {
-    margin: 0 32px;
-    max-width: 460px;
+
+  /*
+   * Printing Tables:
+   * https://web.archive.org/web/20180815150934/http://css-discuss.incutio.com/wiki/Printing_Tables
+   */
+  thead {
+    display: table-header-group;
   }
-  .pencil div h1 {
-    font-size: 32px;
-    line-height: 29px;
+
+  tr,
+  img {
+    page-break-inside: avoid;
   }
-  .pencil div p {
-    font-size: 20px;
-    line-height: 29px;
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
   }
-  form.cuffs h2 {
-    font-size: 24px;
-  }
-  .newsletter {
-    min-height: 506px;
-  }
-  .newsletter > div h2 {
-    margin: 0 12% 32px;
-    font-size: 24px;
-  }
-  .newsletter > div h3 {
-    font-size: 24px;
-    line-height: 29px;
-  }
-  .cuffswrap {
-    background-image: url('../img/cuffs.png');
-    background-repeat: no-repeat;
-    background-position: center top;
-    background-size: cover;
-  }
-  form {
-    padding: 0px;
+
+  h2,
+  h3 {
+    page-break-after: avoid;
   }
 }
-@media only screen and (min-width: 64em) {
-  header {
-    padding: 86px 7% 44px;
-  }
-  header div p {
-    max-width: 470px;
-  }
-}
-@media only screen and (min-width: 1200px) {
-  .newsletter > div h2 {
-    margin: 0 32px 32px;
-  }
-}
+

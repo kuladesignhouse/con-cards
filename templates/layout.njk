@@ -1,0 +1,20 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  {% block meta %}{% endblock %}
+  <title>{% block title %}{% endblock %}</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% block head %}{% endblock %}
+  <meta name="theme-color" content="#4E4944">
+  <link rel="stylesheet" href="https://use.typekit.net/zxm4sio.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  {% include "partials/nav.njk" %}
+  {% block content %}{% endblock %}
+  {% block javascript %}{% endblock %}
+  <footer><h4>© 2021 Con Cards LLC - All Rights Reserved</h4></footer>
+</body>
+</html>
