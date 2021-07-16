@@ -9,7 +9,20 @@
 {% block content %}
 <section class="top">
   <div class="center-row">
-    <img src="../img/topart.png" width="784px">
+    <div class="card-wrap">
+      <div class="card-imgs">
+        <img src="../img/shadow.png">
+        <img src="../img/maintenance-moe.jpg" class="product-overlay" >
+      </div>
+      <div class="card-imgs">
+        <img src="../img/shadow.png">
+        <img src="../img/happy-bday-tribe.jpg" class="product-overlay" >
+      </div>
+      <div class="card-imgs">
+        <img src="../img/shadow.png">
+        <img src="../img/friday.jpg" class="product-overlay" >
+      </div>
+    </div>
     <div class="heading">
       <h1>ConCards</h1>
       <p>Con Cards hires the awesome artistic talents of those incarcerated. We want to reinforce positive change by instilling a sense of constructive purpose. We do this by providing an outlet for their abilities as art on cards and merchandise. Your support is appreciated!</p>
@@ -34,13 +47,14 @@
 <section class="cuffs">
   <div id="cuff"></div>
   <div class="center-row">
-    <h2>We need like-minded people. Are you with us?</h2>
+    <h2>We need like-minded people. <span><br></span>Are you with us?</h2>
     <h2>Updates, deals, and more!</h2>
     <div id="emailform">
       <input type="email" name="email" placeholder="Enter your email">
       <input type="submit" value="Join!" >
     </div>
   </div>
+  <img src="../img/cuffs.png" id="cuffed">
 </section>
 
 {% endblock %}
