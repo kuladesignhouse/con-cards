@@ -4,7 +4,9 @@
 
 {% block title %}ConCards - Wear{% endblock %}
 
-{% block head %}{% endblock %}
+{% block head %}
+  <link rel="stylesheet" href="../css/shopify.css">
+{% endblock %}
 
 {% block content %}
 <section class="shirts">
@@ -14,13 +16,14 @@
   </div>
 
   <div class="center-row">
-    <a href="" class="shirt">
+<!--
+    <a href="animazing.html" class="shirt">
       <img src="../img/steam-skull.png">
       <h3>Steam Skull</h3>
       <h3>T. Ultsch</h3>
       <h3>$28.95</h3>        
     </a>
-    <a href="" class="shirt">
+    <a href="animazing.html" class="shirt">
       <img src="../img/family-over-everything.png">
       <h3>Family Over Everything</h3>
       <h3>T. Ultsch</h3>
@@ -29,13 +32,13 @@
   </div>
 
   <div class="center-row">
-    <a href="" class="shirt">
+    <a href="animazing.html" class="shirt">
       <img src="../img/logo-shirt.png">
       <h3>Logo T-shirt</h3>
       <h3>ConCards</h3>
       <h3>$28.95</h3>        
     </a>
-    <a href="" class="shirt">
+    <a href="animazing.html" class="shirt">
       <img src="../img/steam-skull.png">
       <h3>Steam Skull</h3>
       <h3>T. Ultsch</h3>
@@ -44,22 +47,25 @@
   </div>
 
   <div class="center-row">
-    <a href="" class="shirt">
+    <a href="animazing.html" class="shirt">
       <img src="../img/family-over-everything.png">
       <h3>Family Over Everything</h3>
       <h3>T. Ultsch</h3>
       <h3>$28.95</h3>        
     </a>
-    <a href="" class="shirt">
+    <a href="animazing.html" class="shirt">
       <img src="../img/logo-shirt.png">
       <h3>Logo T-shirt</h3>
       <h3>ConCards</h3>
       <h3>$28.95</h3>
     </a>
   </div>
-
-
+-->
+  </div>
 </section>
 {% endblock %}
 
-{% block javascript %}{% endblock %}
+{% block javascript %}
+  <script src="../js/shirts.js"></script>
+  <script src="../js/cartonly.js"></script>
+{% endblock %}

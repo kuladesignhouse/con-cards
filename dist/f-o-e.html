@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ConCards - Shirt</title>
+  <title>ConCards - F.O.E. Shirt</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
+  <link rel="stylesheet" href="../css/shopify.css">
+
   <meta name="theme-color" content="#4E4944">
   <!--<link rel="stylesheet" href="https://use.typekit.net/zxm4sio.css">-->
   <link rel="stylesheet" href="../css/style.css">
@@ -87,75 +89,18 @@
     </div>
   </nav>
   
-<section class="detail">
-  
+<section class="product">
   <div class="center-row">
-
-      <div class="slideshow-container">
-    	<div class="mySlides"><img src="../img/steam-skull.png" style="width:100%"></div>
-    	<div class="mySlides"><img src="../img/next-img.png" style="width:100%"></div>
-    	<div class="mySlides"><img src="../img/steam-skull.png" style="width:100%"></div>
-    	<svg class="prv" id="prev" onclick="plusSlides(-1)" style="enable-background:new 0 0 22.9 53.7;" version="1.1" viewbox="0 0 22.9 53.7" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
-    	  <path class="st01" d="M22.5,53.4L0.6,26.9L22.5,0.3" id="Path_25"></path>
-    	</svg>
-    	<svg class="nxt" id="Layer_1" onclick="plusSlides(1)" style="enable-background:new 0 0 23 53.7;" version="1.1" viewbox="0 0 23 53.7" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
-    	  <path class="st0" d="M0.4,0.3l21.9,26.6L0.4,53.4" id="Path_25"></path>
-        </svg>
-      </div>
-      <div>
-        <h1>Steam Skull</h1>
-        <h3>$28.95</h3>
-        
-        <h4>Shirt Size</h4>
-        <div class="sizes">
-          <div>
-            <p>S</p>
-            <p>small</p>
-          </div>
-          <div>
-            <p>M</p>
-            <p>medium</p>
-          </div>
-          <div>
-            <p>L</p>
-            <p>large</p>
-          </div>
-          <div>
-            <p>XL</p>
-            <p>extra large</p>
-          </div>
-        </div>
-      </div>
-
+    <div id='product'></div>
+    <div id='artist-info'></div>
+    <div id='more-by'></div>
   </div>
-
 </section>
 
   <footer><h4>© 2021 Con Cards LLC - All Rights Reserved</h4></footer>
   
-<script>
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
-  }
-  slides[slideIndex-1].style.display = "block";  
-}
-</script>
+<script>var product_id = "6804232994995";</script>
+<script src="../js/shopify.js"></script>
 
   <script src="../js/nav.js"></script>
 </body>

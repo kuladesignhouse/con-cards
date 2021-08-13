@@ -1,0 +1,24 @@
+{% extends "layout.njk" %}
+
+{% block meta %}{% endblock %}
+
+{% block title %}ConCards - Amazing Card{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="../css/shopify.css">
+{% endblock %}
+
+{% block content %}
+<section class="product">
+  <div class="center-row">
+    <div id='product'></div>
+    <div id='artist-info'></div>
+    <div id='more-by'></div>
+  </div>
+</section>
+{% endblock %}
+
+{% block javascript %}
+<script>var product_id = "6817648181427";</script>
+<script src="../js/shopify.js"></script>
+{% endblock %}

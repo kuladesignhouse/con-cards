@@ -7,8 +7,10 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
+  <link rel="stylesheet" href="../css/shopify.css">
+
   <meta name="theme-color" content="#4E4944">
-  <link rel="stylesheet" href="https://use.typekit.net/zxm4sio.css">
+  <!--<link rel="stylesheet" href="https://use.typekit.net/zxm4sio.css">-->
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -18,9 +20,8 @@
         <a href="cards.html">Cards</a>
         <a href="shirts.html">Wear</a>
         <a href="">Know Talent?</a>
-        <a href="">About</a>
       </div>
-      <a href="index.html" class="cclogo">
+      <a href="index.html" id="cclogo">
         <svg xmlns="http://www.w3.org/2000/svg" width="100.292" height="103.208" viewBox="0 0 100.292 103.208">
           <g id="Logo" transform="translate(0 0)">
             <path id="Path_1" data-name="Path 1" d="M66.33,10.147l2.992-3.911a15.914,15.914,0,0,0-9.108-2.543c-5.769,0-.712,4.682-.712,4.682S64.319,8.4,66.33,10.147Z" transform="translate(-38.713 -2.488)" fill="#777"/>
@@ -75,6 +76,16 @@
           <div class="burg-inner"></div>
         </div>
       </div>
+      <a id="cart-wrap">
+        <div>
+          <svg id="shopping-cart" xmlns="http://www.w3.org/2000/svg" width="33" height="31.5" viewBox="0 0 36 34.5">
+            <path d="M15,31.5A1.5,1.5,0,1,1,13.5,30,1.5,1.5,0,0,1,15,31.5Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+            <path d="M31.5,31.5A1.5,1.5,0,1,1,30,30,1.5,1.5,0,0,1,31.5,31.5Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+            <path d="M1.5,1.5h6l4.02,20.085a3,3,0,0,0,3,2.415H29.1a3,3,0,0,0,3-2.415L34.5,9H9" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+          </svg>
+          <div id="cart-count"></div>
+        </div>
+      </a>
     </div>
   </nav>
   
@@ -85,13 +96,14 @@
   </div>
 
   <div class="center-row">
-    <a href="" class="shirt">
+<!--
+    <a href="animazing.html" class="shirt">
       <img src="../img/steam-skull.png">
       <h3>Steam Skull</h3>
       <h3>T. Ultsch</h3>
       <h3>$28.95</h3>        
     </a>
-    <a href="" class="shirt">
+    <a href="animazing.html" class="shirt">
       <img src="../img/family-over-everything.png">
       <h3>Family Over Everything</h3>
       <h3>T. Ultsch</h3>
@@ -100,13 +112,13 @@
   </div>
 
   <div class="center-row">
-    <a href="" class="shirt">
+    <a href="animazing.html" class="shirt">
       <img src="../img/logo-shirt.png">
       <h3>Logo T-shirt</h3>
       <h3>ConCards</h3>
       <h3>$28.95</h3>        
     </a>
-    <a href="" class="shirt">
+    <a href="animazing.html" class="shirt">
       <img src="../img/steam-skull.png">
       <h3>Steam Skull</h3>
       <h3>T. Ultsch</h3>
@@ -115,25 +127,28 @@
   </div>
 
   <div class="center-row">
-    <a href="" class="shirt">
+    <a href="animazing.html" class="shirt">
       <img src="../img/family-over-everything.png">
       <h3>Family Over Everything</h3>
       <h3>T. Ultsch</h3>
       <h3>$28.95</h3>        
     </a>
-    <a href="" class="shirt">
+    <a href="animazing.html" class="shirt">
       <img src="../img/logo-shirt.png">
       <h3>Logo T-shirt</h3>
       <h3>ConCards</h3>
       <h3>$28.95</h3>
     </a>
   </div>
-
-
+-->
+  </div>
 </section>
 
   <footer><h4>© 2021 Con Cards LLC - All Rights Reserved</h4></footer>
   
+  <script src="../js/shirts.js"></script>
+  <script src="../js/cartonly.js"></script>
+
   <script src="../js/nav.js"></script>
 </body>
 </html>
