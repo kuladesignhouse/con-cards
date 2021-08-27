@@ -49,7 +49,8 @@
       <a href="${data.collectionByHandle.products.edges[i].node.handle}-card.html" class="card">
         <div class="card-imgs-wrap">
           <div class="card-imgs">
-            <img src="${data.collectionByHandle.products.edges[i].node.variants.edges[0].node.image.originalSrc}" >
+            <img src="../img/shadow.png">
+            <img src="${data.collectionByHandle.products.edges[i].node.variants.edges[0].node.image.originalSrc}" class="product-overlay">
           </div>
         </div>
         <div class="card-info">

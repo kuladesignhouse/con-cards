@@ -250,6 +250,8 @@ section.top > .center-row .heading {
   font-style: normal;
   font-size: 30px;
   line-height: 42px;
+  font-size: 20px;
+  line-height: 25px;
   color: #3C2816;
   margin: 20px 0 10px;
 }
@@ -259,6 +261,7 @@ section.top > .center-row .heading {
   font-style: normal;
   font-size: 16px;
   line-height: 22px;
+  font-size: 11px;
   color: #3C2816;
   margin: 0;
 }
@@ -299,7 +302,8 @@ section.wear > .center-row {
   margin-top: 0;
   background-image: url("../img/wear.png");
   background-position: 112% bottom;
-  background-size: contain;
+  /*background-size: contain;*/
+  background-size: 52%;
   background-repeat: no-repeat;
   padding: 0 30px;
 }
@@ -491,7 +495,8 @@ a.card:nth-child(odd) {
   line-height: 0;
   /*width: 165%;
   height: 180px;*/
-  /*margin: 10px 0 10px 10%;*/
+  /*margin: 10px 0 10px 25%;*/
+  margin-left: 25%;
   width: 115%;
 }
 .shirt-imgs {
@@ -511,6 +516,7 @@ a.card:nth-child(odd) {
 section.top .card-imgs {
   max-width: 223px;
   max-height: 169px;
+  margin-left: 0;
 }
 .card-wrap .card-imgs:not(:first-child) {
   margin-left: -35px;
@@ -519,7 +525,7 @@ section.top .card-imgs {
   margin-right: -70px
 }
 .product-overlay {
-  width: 50%;
+  width: 48.75%;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -740,6 +746,127 @@ footer > h4 {
   color: #FFF;
   margin: 0 0 0 10%;
 }
+section.wanted {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  padding: 107px 0 84px;
+}
+section.wanted .center-row {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 15px;
+}
+section.wanted .center-row img {
+  margin-right: 0;
+}
+section.wanted .center-row div {
+  margin: 0 15px;
+}
+section.wanted .center-row div h1 {
+  font-family: acumin-pro, sans-serif;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 56px;
+  font-size: 25px;
+  color: #3c2816;
+  white-space: nowrap;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+section.wanted .center-row div p {
+  font-family: acumin-pro, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  color: #3c2816;
+}
+section.talent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 333px;
+  background-image: url('../img/newsletter.png');
+  background-repeat: no-repeat;
+  background-position: 17% 50%;
+  background-size: cover;
+  min-height: 500px;
+}
+section.talent .center-row {
+  display: flex;
+  justify-content: center;
+}
+section.talent .center-row form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 363px;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+section.talent .center-row form .form-wrap {
+  width: 100%;
+}
+section.talent .center-row form h2 {
+  font-family: acumin-pro, sans-serif;
+  font-weight: 900;
+  font-size: 25px;
+  line-height: 35px;
+  text-align: center;
+  color: #3c2816;
+  margin: 20px 0 10px;
+}
+section.talent .center-row form label {
+  margin: 8px 0px 8px 16px;
+  color: #3c2816;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 27px;
+}
+section.talent .center-row form input[type="text"],
+section.talent .center-row form input[type="email"] {
+  height: 40px;
+  border: 1px solid #bbbbbb;
+  border-radius: 10px;
+  padding: 0 18px;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 400;
+  font-size: 12.79px;
+  line-height: 23.18px;
+  width: 100%;
+}
+section.talent .center-row form input[type="submit"] {
+  background-color: #e4730d;
+  height: 40px;
+  border-radius: 10px;
+  color: #fff;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23.89px;
+  padding: 0 16px;
+  width: 100%;
+  margin: 16px 0px 36px;
+  border: none;
+}
+section.talent .center-row form textarea {
+  resize: none;
+  height: 163px;
+  border-radius: 10px;
+  border: 1px solid #bbbbbb;
+  width: 100%;
+  padding: 18px 18px;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 400;
+  font-size: 12.79px;
+  line-height: 23.18px;
+}
+.hidden {
+  display: none;
+}
 @media (min-width: 375px) {
   a.card {
     /*margin-right: -55%;*/
@@ -758,7 +885,19 @@ footer > h4 {
     margin-right: -85px
   }
   section.wear > .center-row {
+    background-size: contain;
     background-position: 125% bottom;
+  }
+  .heading h1 {
+    font-size: 30px;
+    line-height: 42px;
+  }
+  .heading p {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  section.wanted .center-row div h1 {
+    font-size: 30px;
   }
 }
 @media only screen and (min-width: 25.875rem) {
@@ -774,6 +913,11 @@ footer > h4 {
 @media only screen and (min-width: 35.9375rem) {
   section.wear > .center-row {
     background-position: 80% bottom;
+  }
+}
+@media only screen and (min-width: 43.75rem) {
+  section.top .card-imgs {
+    margin-left: 15%;
   }
 }
 @media only screen and (min-width: 60rem) {
@@ -810,11 +954,11 @@ footer > h4 {
     max-width: 363.33px;
     max-height: 276.38px;
   }
+  .card-imgs-wrap {
+    overflow: visible;
+  }
   .card-wrap .card-imgs:not(:first-child) {
     margin-left: -155px;
-  }
-  .card-wrap .card-imgs:nth-child(2) {
-    display: none;
   }
   section.top > .center-row {
     padding: 0;
@@ -840,6 +984,12 @@ footer > h4 {
   }
   section.top > div.center-row > .btn-link-wrap {
    margin-top: 50px;
+  }
+  section.top .center-row {
+    max-width: 70rem;
+  }
+  section.top .card-imgs {
+    margin-left: 0%;
   }
   section.wear > .center-row {
     margin-top: 50px;
@@ -910,6 +1060,16 @@ footer > h4 {
   .shirt-info h3 {
     font-size: 18px;
     line-height: 26px;
+  }
+  section.wanted .center-row {
+    flex-direction: row;
+  }
+  section.wanted .center-row div {
+    margin: 0 25px 0 50px;
+  }
+  section.wanted .center-row div h1 {
+    margin-top: 0;
+    font-size: 40px;
   }
 }
 @media only screen and (min-width: 70rem) {

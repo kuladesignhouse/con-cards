@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ConCards - Store</title>
+  <title>ConCards - Know Talent?</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
   <link rel="stylesheet" href="../css/shopify.css">
 
   <meta name="theme-color" content="#4E4944">
-  <!--<link rel="stylesheet" href="https://use.typekit.net/zxm4sio.css">-->
+  <link rel="stylesheet" href="https://use.typekit.net/idp7naa.css">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -89,56 +89,36 @@
     </div>
   </nav>
   
-<section class="top">
+<section class="wanted">
   <div class="center-row">
-    <div class="card-wrap">
-      <div class="card-imgs">
-        <img src="../img/shadow.png">
-        <img src="../img/maintenance-moe.jpg" class="product-overlay" >
-      </div>
-      <div class="card-imgs">
-        <img src="../img/shadow.png">
-        <img src="../img/happy-bday-tribe.jpg" class="product-overlay" >
-      </div>
-      <div class="card-imgs">
-        <img src="../img/shadow.png">
-        <img src="../img/friday.jpg" class="product-overlay" >
-      </div>
+    <img src="../img/poster.png" >
+    <div>
+      <h1>“Con” Artists Wanted!</h1>
+      <p>Do you have an incarcerated family member of friend who is an artist? Con Cards hires the awesome artistic talents to not only provide those artists a source of income, but to instill a sense of purpose and an outlet for those talents.</p>
     </div>
-    <div class="heading">
-      <h1>ConCards</h1>
-      <p>Con Cards hires the awesome artistic talents of those incarcerated. We want to reinforce positive change by instilling a sense of constructive purpose. We do this by providing an outlet for their abilities as art on cards and merchandise. Your support is appreciated!</p>
-    </div>
-    <div class="btn-link-wrap"><a href="cards.html" class="btn-link">Shop cards</a></div>
-  </div>
+  </div>  
 </section>
 
-
-<section class="wear">
+<section class="talent">
   <div class="center-row">
-    <div class="wear-shirts">
-      <div class="heading">
-        <h1>ConCards - Wear</h1>
-        <p>Wear your favorite artists art.</p>
+    <form name="talent" action="thank-you" netlify-honeypot="bot-field" data-netlify="true" enctype="application/x-www-form-urlencoded">
+      <h2>Do you know talent?</h2>
+      <div class="form-wrap">
+        <div class="hidden">
+          <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+        </div>
+        <label for="fullname">Your Name:</label>
+        <input id="fullname" name="fullname" type="text" placeholder="Firstname Lastname">
+        <label for="email">Your Email:</label>
+        <input id="email" name="email" type="email" placeholder="name@example.com">
+        <label for="recommended">Message:</label>
+        <textarea id="recommended" name="message" placeholder="Let us know about the artist you'd like
+  to recommend."></textarea>
+        <input type="submit" id="btn2" value="Send">
       </div>
-    </div>
-    <div class="btn-link-wrap"><a href="shirts.html" class="btn-link">Shop T-shirts</a></div>
-  </div>
+    </form>
+  </div>  
 </section>
-
-<section class="cuffs">
-  <div id="cuff"></div>
-  <div class="center-row">
-    <h2>We need like-minded people. <span><br></span>Are you with us?</h2>
-    <h2>Updates, deals, and more!</h2>
-    <div id="emailform">
-      <input type="email" name="email" placeholder="Enter your email">
-      <input type="submit" value="Join!" >
-    </div>
-  </div>
-  <img src="../img/cuffs.png" id="cuffed">
-</section>
-
 
   <footer><h4>© 2021 Con Cards LLC - All Rights Reserved</h4></footer>
   
