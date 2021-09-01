@@ -19,33 +19,62 @@ let firstLoop = true;
     script.onload = ShopifyBuyInit;
   }
   function artistInfo(){
-    var d = document.querySelector(".shopify-buy__product-description")
+    var d = document.querySelector(".shopify-buy__product-description");
     if (!d){
       setTimeout(artistInfo,100);
     } else {
-      data = JSON.parse(d.dataset.data);
-      let artist_info_html = 
-         `<h4>Arist Info</h4>
-          <div>
+      var artist_info_html = "";
+      var more_by_html = "";
+      var artist_fullname = "";
+      var description = d.dataset.data;
+      var data;
+      try {
+        data = JSON.parse(d.dataset.data);
+        artist_info_html = 
+           `<h4>Arist Info</h4>
             <div>
-              <div>Name:</div>
-              <div>Term:</div>
-              <div>Outdate:</div>
-              <div>Location:</div>
-              <div>Parting Shot:</div>
-            </div>
-            <div>        
-              <div>${data['artist-name-full']}</div>
-              <div>${data['term']}</div>
-              <div>${data['outdate']}</div>
-              <div>${data['location']}</div>
-              <div>"${data['parting-shot']}"</div>
-            </div>
-          </div>`;
+              <div>
+                <div>Name:</div>
+                <div>Term:</div>
+                <div>Outdate:</div>
+                <div>Location:</div>
+                <div>Parting Shot:</div>
+              </div>
+              <div>        
+                <div>${data['artist-name-full']}</div>
+                <div>${data['term']}</div>
+                <div>${data['outdate']}</div>
+                <div>${data['location']}</div>
+                <div>${data['parting-shot']}  </div>
+              </div>
+            </div>`;
+        more_by_html = `<h4>More By ${data['artist-name-full']}</h4>`;
+        artist_fullname = data['artist-name-full'];
+      } catch(e) {
+        artist_fullname = d.dataset.data;
+        artist_info_html = 
+           `<h4>Arist Info</h4>
+            <div>
+              <div>
+                <div>Name:</div>
+                <div>Term:</div>
+                <div>Outdate:</div>
+                <div>Location:</div>
+                <div>Parting Shot:</div>
+              </div>
+              <div>        
+                <div>${artist_fullname}</div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>`;
+        more_by_html = `<h4>More By ${artist_fullname}</h4>`;
+      }
       document.getElementById('artist-info').innerHTML = artist_info_html;
-      let more_by_html = `<h4>More By ${data['artist-name-full']}</h4>`;
       document.getElementById('more-by').innerHTML = more_by_html;
-      getMoreBy(data['artist-name-full']);
+      getMoreBy(artist_fullname);
     }
   }
   let cartCount = document.getElementById("cart-count");
@@ -96,6 +125,15 @@ let firstLoop = true;
                 id
                 title
                 handle
+                productType
+                images(first: 1) {
+        	        edges {
+        	          node {
+        	            id
+        	            originalSrc
+        	          }
+        	        }
+        	      }
               }
             }
           }
@@ -110,10 +148,39 @@ let firstLoop = true;
     var more_by_wrap = document.createElement("DIV");
     for (var i = 0; i < data.products.edges.length; i++){
       var link = document.createElement("A");
-      link.href = `${data.products.edges[i].node.handle}.html`;
       var img = document.createElement("IMG");
-      img.src = data.products.edges[i].node.variants.edges[0].node.image.originalSrc;
-      link.appendChild(img);
+      var img_wrap = document.createElement("DIV");
+      img_wrap.className = "img-zoom-wrap";
+      if (data.products.edges[i].node.productType == "card") {
+        link.href = `${data.products.edges[i].node.handle}-card.html`;
+        img.src = data.products.edges[i].node.variants.edges[0].node.image.originalSrc;
+        img.className = "product-overlay";
+        var card_imgs = document.createElement("DIV");
+        card_imgs.className = "card-imgs";
+        var shadow_img = document.createElement("IMG");
+        shadow_img.src = "../img/shadow.png";
+        card_imgs.appendChild(shadow_img);
+        card_imgs.appendChild(img);
+        //img_wrap.appendChild(shadow_img);
+        //img_wrap.appendChild(img);
+        img_wrap.appendChild(card_imgs);
+
+/*
+        <div class="card-imgs-wrap">
+          <div class="card-imgs">
+            <img src="../img/shadow.png">
+            <img src="${data.collectionByHandle.products.edges[i].node.variants.edges[0].node.image.originalSrc}" class="product-overlay">
+          </div>
+        </div>
+*/
+
+      } else {
+        link.href = `${data.products.edges[i].node.handle}.html`;
+        img.src = data.products.edges[i].node.images.edges[0].node.originalSrc;
+        img.className = "shirt-zoom";
+        img_wrap.appendChild(img);
+      }
+      link.appendChild(img_wrap);
       var item_info = document.createElement("DIV");
       item_info.className = "item-info";
       var item_title = document.createElement("DIV");
@@ -129,6 +196,18 @@ let firstLoop = true;
       more_by_wrap.appendChild(link); 
     }
     document.getElementById('more-by').appendChild(more_by_wrap);
+  }
+  var contents = {
+    "img": false,
+    "imgWithCarousel": true,
+    "description": true
+  };
+  if (is_card == true) {
+    contents = {
+      "img": true,
+      "imgWithCarousel": false,
+      "description": true
+    };
   }
   function ShopifyBuyInit() {
     var client = ShopifyBuy.buildClient({
@@ -207,17 +286,14 @@ let firstLoop = true;
       }
     },
     "layout": "horizontal",
-    "contents": {
-      "img": false,
-      "imgWithCarousel": true,
-      "description": true
-    },
+    "contents": contents,
     "width": "100%",
     "text": {
       "button": "Add to cart"
     },
     "templates" : {
       "description": '<div class="{{data.classes.product.description}}" data-data="{{data.description}}"></div>',
+      "img" : '{{#data.currentImage.srcLarge}}<div class="card-img"><img src="../img/shadow.png"><img alt="{{data.currentImage.altText}}" src="{{data.currentImage.srcLarge}}" /></div>{{/data.currentImage.srcLarge}}',
     },
     "DOMEvents": {
       'click .shopify-buy__option-select': function (evt, target) {

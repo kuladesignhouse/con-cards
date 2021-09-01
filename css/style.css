@@ -867,6 +867,43 @@ section.talent .center-row form textarea {
 .hidden {
   display: none;
 }
+.card-img {
+  position: relative;
+  margin-left: 16%;
+  height: 280px;
+}
+.card-img img:first-child {
+  height: 100%;
+}
+.card-img img:nth-child(2) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 90%;
+}
+section.product .shopify-buy__layout-horizontal .shopify-buy__product__title {
+  margin-top: 40px !important;
+}
+section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
+  position: relative;
+  overflow: visible;
+}
+.img-zoom-wrap {
+  overflow: hidden;
+  width: calc(100% - 20px);
+  height: 100%;
+  border: 1px solid #CECECE;
+  padding: 15px;
+}
+#more-by > div a:nth-child(1) .img-zoom-wrap {
+  margin-right: 10px;
+}
+#more-by > div a:nth-child(2) .img-zoom-wrap {
+  margin-left: 10px;
+}
+.shirt-zoom {
+  transform: scale(1.85) translate(0, 17px);
+}
 @media (min-width: 375px) {
   a.card {
     /*margin-right: -55%;*/
@@ -899,6 +936,10 @@ section.talent .center-row form textarea {
   section.wanted .center-row div h1 {
     font-size: 30px;
   }
+  .card-img {
+    margin-left: 15%;
+    height: 350px;
+  }
 }
 @media only screen and (min-width: 25.875rem) {
   section.wear > .center-row {
@@ -910,9 +951,51 @@ section.talent .center-row form textarea {
     background-position: right bottom;
   }
 }
+@media only screen and (min-width: 31.25rem) {
+  .card-img {
+    position: absolute;
+    left: 0;
+    bottom: -65px;
+    height: 250px;
+    z-index: -1;
+    margin-left: 0;
+  }
+  section.product .shopify-buy__layout-horizontal .shopify-buy__product__title {
+    margin-top: 70px !important;
+  }
+  section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
+    margin-bottom: 50px;
+  }
+  .shopify-buy__btn-wrapper {
+    margin-bottom: 100px; 
+  }
+  .shirt-zoom {
+    transform: scale(1.85) translate(0, 25px);
+  }
+}
 @media only screen and (min-width: 35.9375rem) {
   section.wear > .center-row {
     background-position: 80% bottom;
+  }
+}
+@media only screen and (min-width: 42.5rem) {
+  .card-img {
+    position: absolute;
+    left: 45px;
+    bottom: 0;
+    height: 500px;
+    z-index: -1;
+  }
+  section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
+    height: 500px;
+    margin-bottom: 25px;
+  }
+  section.product .shopify-buy__layout-horizontal .shopify-buy__product__title {
+    margin-top: 0px !important;
+    padding-top: 210px !important;
+  }
+  .shirt-zoom {
+    transform: none;
   }
 }
 @media only screen and (min-width: 43.75rem) {
@@ -1070,6 +1153,17 @@ section.talent .center-row form textarea {
   section.wanted .center-row div h1 {
     margin-top: 0;
     font-size: 40px;
+  }
+  .card-img {
+    left: 70px;
+  }
+  .img-zoom-wrap {
+    border: none;
+    overflow: visible;
+    padding: 0;
+  }
+  section.product > .center-row {
+    overflow: visible;
   }
 }
 @media only screen and (min-width: 70rem) {

@@ -472,6 +472,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  margin-right: 25px;
 }
 #more-by > div a {
   width: 50%;
@@ -487,6 +488,9 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 #more-by > div img {
   width: 100%;
   margin-bottom: 15px;
+}
+#more-by > div img.product-overlay {
+  width: 48.75%;
 }
 .shopify-buy__cart-wrapper {
   height: 100%;
