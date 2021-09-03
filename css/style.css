@@ -2,6 +2,9 @@
 body {
   margin: 0;
 }
+body.is-card {
+  background-color: #fafafa;
+}
 nav {
   width: 100%;
   background-color: #4E4944;
@@ -487,6 +490,7 @@ a.card:nth-child(odd) {
   align-items: flex-start;
   flex-direction: column;
   padding: 0px;
+  height: 160px;
 }
 .card-imgs {
   position:relative;
@@ -499,9 +503,17 @@ a.card:nth-child(odd) {
   margin-left: 25%;
   width: 115%;
 }
+.cardimg {
+  position:relative;
+  line-height: 0;
+  margin-left: 25%;
+  width: 115%;
+  margin-left: 12%;
+  width: 156%;
+}
 .shirt-imgs {
   position:relative;
-  width: 100%%;
+  width: 100%;
 }
 .card-imgs-wrap img,
 .shirt-imgs-wrap img, {
@@ -557,6 +569,7 @@ section.top .card-imgs {
   line-height: 22px;
   color: #3C2816;
   margin: 0;
+  white-space: nowrap;
 }
 .card-info h3:nth-child(2),
 .shirt h3:nth-child(2) {
@@ -891,9 +904,16 @@ section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
 .img-zoom-wrap {
   overflow: hidden;
   width: calc(100% - 20px);
-  height: 100%;
+  /*height: 100%;*/
   border: 1px solid #CECECE;
   padding: 15px;
+  height: 160px;
+}
+.img-zoom-wrap-card {
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 #more-by > div a:nth-child(1) .img-zoom-wrap {
   margin-right: 10px;
@@ -904,15 +924,8 @@ section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
 .shirt-zoom {
   transform: scale(1.85) translate(0, 17px);
 }
-@media (min-width: 375px) {
-  a.card {
-    /*margin-right: -55%;*/
-  }
-}
-@media (min-width: 414px) {
-  a.card {
-    /*margin-right: -50%;*/
-  }
+.zoom-shirt {
+  transform: scale(2.5) translate(0, 20px);
 }
 @media only screen and (min-width: 23.4375rem) {
   .card-wrap .card-imgs:not(:first-child) {
@@ -940,15 +953,44 @@ section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
     margin-left: 15%;
     height: 350px;
   }
+  .shirt-imgs-wrap {
+    height: 200px;
+  }
+  .img-zoom-wrap {
+    height: 200px;
+  }
+  .zoom-shirt {
+    transform: scale(2.5) translate(0, 25px);
+  }
 }
 @media only screen and (min-width: 25.875rem) {
   section.wear > .center-row {
     background-position: 110% bottom;
   }
+  .shirt-imgs-wrap {
+    height: 240px;
+  }
+  .img-zoom-wrap {
+    height: 240px;
+  }
+  .zoom-shirt {
+    transform: scale(2.5) translate(0, 35px);
+  }
 }
 @media only screen and (min-width: 26.875rem) {
   section.wear > .center-row {
     background-position: right bottom;
+  }
+}
+@media only screen and (min-width: 28.125rem) {
+  .shirt-imgs-wrap {
+    height: 300px;
+  }
+  .img-zoom-wrap {
+    height: 300px;
+  }
+  .zoom-shirt {
+    transform: scale(2.5) translate(0, 40px);
   }
 }
 @media only screen and (min-width: 31.25rem) {
@@ -973,9 +1015,32 @@ section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
     transform: scale(1.85) translate(0, 25px);
   }
 }
+@media only screen and (min-width: 28.125rem) {
+  .shirt-imgs-wrap {
+    height: 350px;
+  }
+  .img-zoom-wrap {
+    height: 350px;
+  }
+  .zoom-shirt {
+    transform: scale(2.5) translate(0, 40px);
+  }
+}
+@media only screen and (min-width: 32.5rem) {
+  .cardimg {
+    margin-left: 25%;
+    width: 115%;
+  }
+}
 @media only screen and (min-width: 35.9375rem) {
   section.wear > .center-row {
     background-position: 80% bottom;
+  }
+}
+@media only screen and (min-width: 38.75rem) {
+  .cardimg {
+    margin-left: 25%;
+    width: 115%;
   }
 }
 @media only screen and (min-width: 42.5rem) {
@@ -986,6 +1051,10 @@ section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
     height: 500px;
     z-index: -1;
   }
+  .cardimg {
+    margin-left: 25%;
+    width: 115%;
+  }
   section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
     height: 500px;
     margin-bottom: 25px;
@@ -995,6 +1064,9 @@ section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
     padding-top: 210px !important;
   }
   .shirt-zoom {
+    transform: none;
+  }
+  .zoom-shirt {
     transform: none;
   }
 }
@@ -1164,6 +1236,9 @@ section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
   }
   section.product > .center-row {
     overflow: visible;
+  }
+  .img-zoom-wrap {
+    height: 250px;
   }
 }
 @media only screen and (min-width: 70rem) {

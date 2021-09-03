@@ -32,6 +32,14 @@
                       }
                     }
                   }
+                  images(first: 1) {
+          	        edges {
+          	          node {
+          	            id
+          	            originalSrc
+          	          }
+          	        }
+          	      }
                 }
               }
             }
@@ -50,7 +58,7 @@
       <a href="${data.collectionByHandle.products.edges[i].node.handle}.html" class="shirt">
         <div class="shirt-imgs-wrap">
           <div class="shirt-imgs">
-            <img src="${data.collectionByHandle.products.edges[i].node.variants.edges[0].node.image.originalSrc}" >
+            <img src="${data.collectionByHandle.products.edges[i].node.images.edges[0].node.originalSrc}" class="shirt-zoom">
           </div>
         </div>
         <div class="shirt-info">

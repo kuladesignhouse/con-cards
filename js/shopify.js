@@ -152,32 +152,25 @@ let firstLoop = true;
       var img_wrap = document.createElement("DIV");
       img_wrap.className = "img-zoom-wrap";
       if (data.products.edges[i].node.productType == "card") {
+        img_wrap.classList.add("img-zoom-wrap-card");
         link.href = `${data.products.edges[i].node.handle}-card.html`;
         img.src = data.products.edges[i].node.variants.edges[0].node.image.originalSrc;
         img.className = "product-overlay";
         var card_imgs = document.createElement("DIV");
-        card_imgs.className = "card-imgs";
+        card_imgs.className = "cardimg";
         var shadow_img = document.createElement("IMG");
         shadow_img.src = "../img/shadow.png";
+        shadow_img.className = "shadow-img";
         card_imgs.appendChild(shadow_img);
         card_imgs.appendChild(img);
         //img_wrap.appendChild(shadow_img);
         //img_wrap.appendChild(img);
         img_wrap.appendChild(card_imgs);
 
-/*
-        <div class="card-imgs-wrap">
-          <div class="card-imgs">
-            <img src="../img/shadow.png">
-            <img src="${data.collectionByHandle.products.edges[i].node.variants.edges[0].node.image.originalSrc}" class="product-overlay">
-          </div>
-        </div>
-*/
-
       } else {
         link.href = `${data.products.edges[i].node.handle}.html`;
         img.src = data.products.edges[i].node.images.edges[0].node.originalSrc;
-        img.className = "shirt-zoom";
+        img.className = "zoom-shirt";
         img_wrap.appendChild(img);
       }
       link.appendChild(img_wrap);

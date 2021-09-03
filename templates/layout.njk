@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://use.typekit.net/idp7naa.css">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="{% block bodyclass %}{% endblock %}">
   {% include "partials/nav.njk" %}
   {% block content %}{% endblock %}
   <footer><h4>© 2021 Con Cards LLC - All Rights Reserved</h4></footer>
