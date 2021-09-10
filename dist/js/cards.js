@@ -1,5 +1,5 @@
 (function () {
-  const getShirts = async () => {
+  const getCards = async () => {
     const endpoint = 'https://concards.myshopify.com/api/2020-07/graphql';
     const headers = new Headers({
       'Content-Type': 'application/json',
@@ -12,7 +12,7 @@
       body: JSON.stringify({
         query: `
         {
-          collectionByHandle(handle: "Shirts") {
+          collectionByHandle(handle: "Cards") {
             products(first: 250) {
               edges {
                 node {
@@ -32,14 +32,6 @@
                       }
                     }
                   }
-                  images(first: 1) {
-          	        edges {
-          	          node {
-          	            id
-          	            originalSrc
-          	          }
-          	        }
-          	      }
                 }
               }
             }
@@ -48,27 +40,33 @@
       })
     });
     const data = await response.json();
-    handleShirts(data.data)
+    handleCards(data.data)
   }
-  let shirts_row = document.querySelectorAll("section.shirts .center-row")[1];
-  const handleShirts = (data) => {
+  let cards_row = document.querySelectorAll("section.card-store .center-row")[1];
+  const handleCards = (data) => {
     for (var i = 0; i < data.collectionByHandle.products.edges.length; i++){
-      var description = JSON.parse(data.collectionByHandle.products.edges[i].node.description);
-      let shirt_html = `
-      <a href="${data.collectionByHandle.products.edges[i].node.handle}.html" class="shirt">
-        <div class="shirt-imgs-wrap">
-          <div class="shirt-imgs">
-            <img src="${data.collectionByHandle.products.edges[i].node.images.edges[0].node.originalSrc}" class="shirt-zoom">
+      var json_data;
+      try {
+        json_data = JSON.parse(data.collectionByHandle.products.edges[i].node.description);
+      } catch(e) {
+        console.log(e);
+      }
+      let card_html = `
+      <a href="${data.collectionByHandle.products.edges[i].node.handle}-card.html" class="card">
+        <div class="card-imgs-wrap">
+          <div class="card-imgs">
+            <img src="img/shadow.png">
+            <img src="${data.collectionByHandle.products.edges[i].node.variants.edges[0].node.image.originalSrc}" class="product-overlay">
           </div>
         </div>
-        <div class="shirt-info">
+        <div class="card-info">
           <h3>${data.collectionByHandle.products.edges[i].node.title}</h3>
-          <h3>${description["artist-name-full"]}</h3>
+          <h3>${json_data.artist_fullname}</h3>
           <h3>$${data.collectionByHandle.products.edges[i].node.variants.edges[0].node.price}</h3>        
         </div>
       </a>`;
-      shirts_row.insertAdjacentHTML('beforeend', shirt_html);
+      cards_row.insertAdjacentHTML('beforeend', card_html);
     }
   }
-  getShirts();
+  getCards();
 })();

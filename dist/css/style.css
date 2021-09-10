@@ -303,7 +303,7 @@ section.wear > .center-row {
   flex-direction: column;
   justify-content: center;
   margin-top: 0;
-  background-image: url("../img/wear.png");
+  background-image: url("/img/wear.png");
   background-position: 112% bottom;
   /*background-size: contain;*/
   background-size: 52%;
@@ -319,7 +319,7 @@ section.cuffs {
   flex-direction: column;
   justify-content: center;
   /*height: 581px;*/
-  background-image: url("../img/cuffsbg.jpg");
+  background-image: url("/img/cuffsbg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -327,7 +327,7 @@ section.cuffs {
 }
 #cuff {
   position: absolute;
-  background-image: url("../img/cuffs.png");
+  background-image: url("/img/cuffs.png");
   background-repeat: no-repeat;
   background-position: right 200%;
   width: 100%;
@@ -574,6 +574,7 @@ section.top .card-imgs {
 .card-info h3:nth-child(2),
 .shirt h3:nth-child(2) {
   font-weight: 500;
+  white-space: normal;
 }
 
 
@@ -801,7 +802,7 @@ section.talent {
   justify-content: center;
   align-items: center;
   min-height: 333px;
-  background-image: url('../img/newsletter.png');
+  background-image: url('/img/newsletter.png');
   background-repeat: no-repeat;
   background-position: 17% 50%;
   background-size: cover;
@@ -1157,7 +1158,7 @@ section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
   }
   #cuff {
     position: absolute;
-    background-image: url("../img/cuffs.png");
+    background-image: url("/img/cuffs.png");
     background-repeat: no-repeat;
     background-position: right 200%;
     width: 100%;

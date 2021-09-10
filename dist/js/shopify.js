@@ -41,15 +41,15 @@ let firstLoop = true;
                 <div>Parting Shot:</div>
               </div>
               <div>        
-                <div>${data['artist-name-full']}</div>
+                <div>${data['artist_fullname']}</div>
                 <div>${data['term']}</div>
                 <div>${data['outdate']}</div>
                 <div>${data['location']}</div>
-                <div>${data['parting-shot']}  </div>
+                <div>${data['parting_shot']}  </div>
               </div>
             </div>`;
-        more_by_html = `<h4>More By ${data['artist-name-full']}</h4>`;
-        artist_fullname = data['artist-name-full'];
+        more_by_html = `<h4>More By ${data['artist_fullname']}</h4>`;
+        artist_fullname = data['artist_fullname'];
       } catch(e) {
         artist_fullname = d.dataset.data;
         artist_info_html = 
@@ -159,7 +159,7 @@ let firstLoop = true;
         var card_imgs = document.createElement("DIV");
         card_imgs.className = "cardimg";
         var shadow_img = document.createElement("IMG");
-        shadow_img.src = "../img/shadow.png";
+        shadow_img.src = "img/shadow.png";
         shadow_img.className = "shadow-img";
         card_imgs.appendChild(shadow_img);
         card_imgs.appendChild(img);
@@ -286,7 +286,7 @@ let firstLoop = true;
     },
     "templates" : {
       "description": '<div class="{{data.classes.product.description}}" data-data="{{data.description}}"></div>',
-      "img" : '{{#data.currentImage.srcLarge}}<div class="card-img"><img src="../img/shadow.png"><img alt="{{data.currentImage.altText}}" src="{{data.currentImage.srcLarge}}" /></div>{{/data.currentImage.srcLarge}}',
+      "img" : '{{#data.currentImage.srcLarge}}<div class="card-img"><img src="img/shadow.png"><img alt="{{data.currentImage.altText}}" src="{{data.currentImage.srcLarge}}" /></div>{{/data.currentImage.srcLarge}}',
     },
     "DOMEvents": {
       'click .shopify-buy__option-select': function (evt, target) {

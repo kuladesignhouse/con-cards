@@ -1,6 +1,5 @@
 let firstLoop = true;
 (function () {
-  //const artist_name = "david harriman";
   const access_token = "75af2f54e0d6eb2037bc91a0f90fa6db";
   var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
   if (window.ShopifyBuy) {
