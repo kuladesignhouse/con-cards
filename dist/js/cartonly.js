@@ -40,7 +40,7 @@ let firstLoop = true;
   
   function ShopifyBuyInit() {
     var client = ShopifyBuy.buildClient({
-      domain: 'concards.myshopify.com',
+      domain: 'checkout.concardsco.com',
       storefrontAccessToken: access_token,
     });
     ShopifyBuy.UI.onReady(client).then(function (ui) {

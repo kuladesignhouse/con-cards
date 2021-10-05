@@ -1,6 +1,6 @@
 (function () {
   const getCards = async () => {
-    const endpoint = 'https://concards.myshopify.com/api/2020-07/graphql';
+    const endpoint = 'https://checkout.concardsco.com/api/2020-07/graphql';
     const headers = new Headers({
       'Content-Type': 'application/json',
       'Accept': 'application/json',

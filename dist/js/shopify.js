@@ -96,7 +96,7 @@ let firstLoop = true;
     return count;
   }
   const getMoreBy = async (artist_name) => {
-    const endpoint = 'https://concards.myshopify.com/api/2020-07/graphql';
+    const endpoint = 'https://checkout.concardsco.com/api/2020-07/graphql';
     const headers = new Headers({
       'Content-Type': 'application/json',
       'Accept': 'application/json',
@@ -204,7 +204,7 @@ let firstLoop = true;
   }
   function ShopifyBuyInit() {
     var client = ShopifyBuy.buildClient({
-      domain: 'concards.myshopify.com',
+      domain: 'checkout.concardsco.com',
       storefrontAccessToken: access_token,
     });
     ShopifyBuy.UI.onReady(client).then(function (ui) {
