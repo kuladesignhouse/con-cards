@@ -30,6 +30,8 @@ let firstLoop = true;
       var data;
       try {
         data = JSON.parse(d.dataset.data);
+        var artist_name_formatted = data['artist_fullname'].replace('\\"', '"').replace('\\\"', '"');
+/*
         artist_info_html = 
            `<h4>Arist Info</h4>
             <div>
@@ -41,14 +43,39 @@ let firstLoop = true;
                 <div>Parting Shot:</div>
               </div>
               <div>        
-                <div>${data['artist_fullname']}</div>
+                <div>${artist_name_formatted}</div>
                 <div>${data['term']}</div>
                 <div>${data['outdate']}</div>
                 <div>${data['location']}</div>
                 <div>${data['parting_shot']}  </div>
               </div>
             </div>`;
-        more_by_html = `<h4>More By ${data['artist_fullname']}</h4>`;
+*/
+        artist_info_html = 
+           `<h4>Arist Info</h4>
+            <div>
+              <div>
+                <div>Name:</div>
+                <div>${artist_name_formatted}</div>
+              </div>
+              <div>
+                <div>Term:</div>
+                <div>${data['term']}</div>
+              </div>
+              <div>
+                <div>Outdate:</div>
+                <div>${data['outdate']}</div>
+              </div>
+              <div>
+                <div>Location:</div>
+                <div>${data['location']}</div>
+              </div>
+              <div>
+                <div>Parting Shot:</div>
+                <div>${data['parting_shot']}  </div>
+              </div>
+            </div>`;
+        more_by_html = `<h4>More By ${artist_name_formatted}</h4>`;
         artist_fullname = data['artist_fullname'];
       } catch(e) {
         artist_fullname = d.dataset.data;
@@ -141,54 +168,59 @@ let firstLoop = true;
       })
     });
     const data = await response.json();
-    moreBy(data.data, artist_name)
+    moreBy(
+      data.data,
+      artist_name.replace('\\"', '"').replace('\\\"', '"')
+    )
   }
   
   const moreBy = (data, artist_name) => {
-    var more_by_wrap = document.createElement("DIV");
-    for (var i = 0; i < data.products.edges.length; i++){
-      var link = document.createElement("A");
-      var img = document.createElement("IMG");
-      var img_wrap = document.createElement("DIV");
-      img_wrap.className = "img-zoom-wrap";
-      if (data.products.edges[i].node.productType == "card") {
-        img_wrap.classList.add("img-zoom-wrap-card");
-        link.href = `${data.products.edges[i].node.handle}-card.html`;
-        img.src = data.products.edges[i].node.variants.edges[0].node.image.originalSrc;
-        img.className = "product-overlay";
-        var card_imgs = document.createElement("DIV");
-        card_imgs.className = "cardimg";
-        var shadow_img = document.createElement("IMG");
-        shadow_img.src = "img/shadow.png";
-        shadow_img.className = "shadow-img";
-        card_imgs.appendChild(shadow_img);
-        card_imgs.appendChild(img);
-        //img_wrap.appendChild(shadow_img);
-        //img_wrap.appendChild(img);
-        img_wrap.appendChild(card_imgs);
-
-      } else {
-        link.href = `${data.products.edges[i].node.handle}.html`;
-        img.src = data.products.edges[i].node.images.edges[0].node.originalSrc;
-        img.className = "zoom-shirt";
-        img_wrap.appendChild(img);
+    if (data && "products" in data) {
+      var more_by_wrap = document.createElement("DIV");
+      for (var i = 0; i < data.products.edges.length; i++){
+        var link = document.createElement("A");
+        var img = document.createElement("IMG");
+        var img_wrap = document.createElement("DIV");
+        img_wrap.className = "img-zoom-wrap";
+        if (data.products.edges[i].node.productType == "card") {
+          img_wrap.classList.add("img-zoom-wrap-card");
+          link.href = `${data.products.edges[i].node.handle}-card.html`;
+          img.src = data.products.edges[i].node.variants.edges[0].node.image.originalSrc;
+          img.className = "product-overlay";
+          var card_imgs = document.createElement("DIV");
+          card_imgs.className = "cardimg";
+          var shadow_img = document.createElement("IMG");
+          shadow_img.src = "img/shadow.png";
+          shadow_img.className = "shadow-img";
+          card_imgs.appendChild(shadow_img);
+          card_imgs.appendChild(img);
+          //img_wrap.appendChild(shadow_img);
+          //img_wrap.appendChild(img);
+          img_wrap.appendChild(card_imgs);
+  
+        } else {
+          link.href = `${data.products.edges[i].node.handle}.html`;
+          img.src = data.products.edges[i].node.images.edges[0].node.originalSrc;
+          img.className = "zoom-shirt";
+          img_wrap.appendChild(img);
+        }
+        link.appendChild(img_wrap);
+        var item_info = document.createElement("DIV");
+        item_info.className = "item-info";
+        var item_title = document.createElement("DIV");
+        item_title.textContent = data.products.edges[i].node.title;
+        var item_artist = document.createElement("DIV");
+        item_artist.textContent = artist_name;
+        var item_price = document.createElement("DIV");
+        item_price.textContent = data.products.edges[i].node.variants.edges[0].node.price;
+        item_info.appendChild(item_title);
+        item_info.appendChild(item_artist);
+        item_info.appendChild(item_price);
+        link.appendChild(item_info);
+        more_by_wrap.appendChild(link); 
       }
-      link.appendChild(img_wrap);
-      var item_info = document.createElement("DIV");
-      item_info.className = "item-info";
-      var item_title = document.createElement("DIV");
-      item_title.textContent = data.products.edges[i].node.title;
-      var item_artist = document.createElement("DIV");
-      item_artist.textContent = artist_name;
-      var item_price = document.createElement("DIV");
-      item_price.textContent = data.products.edges[i].node.variants.edges[0].node.price;
-      item_info.appendChild(item_title);
-      item_info.appendChild(item_artist);
-      item_info.appendChild(item_price);
-      link.appendChild(item_info);
-      more_by_wrap.appendChild(link); 
+      document.getElementById('more-by').appendChild(more_by_wrap);
     }
-    document.getElementById('more-by').appendChild(more_by_wrap);
   }
   var contents = {
     "img": false,

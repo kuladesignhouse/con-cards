@@ -63,7 +63,7 @@
         </div>
         <div class="shirt-info">
           <h3>${data.collectionByHandle.products.edges[i].node.title}</h3>
-          <h3>${description["artist_fullname"]}</h3>
+          <h3>${description["artist_fullname"].replace('\\"', '"').replace('\\\"', '"')}</h3>
           <h3>$${data.collectionByHandle.products.edges[i].node.variants.edges[0].node.price}</h3>        
         </div>
       </a>`;

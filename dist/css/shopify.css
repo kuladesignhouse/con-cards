@@ -443,16 +443,36 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   line-height: 28px;
   font-family: acumin-pro, sans-serif;
   color: #3C2816;
-}      
+}
 #artist-info > div {
   margin-right: 25px;
   display: flex;
   margin-bottom: 60px;
+  
+  flex-direction: column;
 } 
+/*
 #artist-info > div > div:first-child {
   margin-right: 25px;
 }
 #artist-info > div > div:first-child > div {
+  white-space: nowrap;
+}
+#artist-info > div > div > div {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+}
+*/
+#artist-info > div > div {
+  display: flex;
+  width: 100%;
+}
+#artist-info > div > div > div:first-child {
+  display: flex;
+  width: 100%;
+  max-width: 93.2px;
+  margin-right: 25px;
   white-space: nowrap;
 }
 #artist-info > div > div > div {
@@ -678,6 +698,11 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .is-inline.shopify-buy__cart-toggle {
   border-radius: 3px;
   padding: 5px 10px; }
+@media (min-width: 28.75rem) {
+  #artist-info > div {
+    margin-right: 0px;
+  }
+}
 @media (min-width: 60rem) {
   #more-by > div {
     display: flex;

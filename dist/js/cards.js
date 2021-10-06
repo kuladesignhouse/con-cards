@@ -51,8 +51,12 @@
       } catch(e) {
         console.log(e);
       }
+      let handle = data.collectionByHandle.products.edges[i].node.handle;
+      if (handle.endsWith("-1")) {
+        handle = handle.substring(0, handle.length - 2);
+      }
       let card_html = `
-      <a href="${data.collectionByHandle.products.edges[i].node.handle}-card.html" class="card">
+      <a href="${handle}-card.html" class="card">
         <div class="card-imgs-wrap">
           <div class="card-imgs">
             <img src="img/shadow.png">
@@ -61,7 +65,7 @@
         </div>
         <div class="card-info">
           <h3>${data.collectionByHandle.products.edges[i].node.title}</h3>
-          <h3>${json_data.artist_fullname}</h3>
+          <h3>${json_data.artist_fullname.replace('\\"', '"').replace('\\\"', '"')}</h3>
           <h3>$${data.collectionByHandle.products.edges[i].node.variants.edges[0].node.price}</h3>        
         </div>
       </a>`;

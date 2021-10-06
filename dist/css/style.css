@@ -765,8 +765,27 @@ section.wanted .center-row {
 }
 section.wanted .center-row img {
   margin-right: 0;
+  max-width: 100%;
+  height: auto;
 }
-section.wanted .center-row div {
+section.wanted .center-row > div:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+section.wanted .center-row > div:nth-child(1) div {
+  font-family: acumin-pro, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #3c2816;
+}
+section.wanted .center-row > div:nth-child(1) div a {
+  font-family: acumin-pro, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #3c2816;
+}
+section.wanted .center-row > div:nth-child(2) {
   margin: 0 15px;
 }
 section.wanted .center-row div h1 {
@@ -955,9 +974,6 @@ section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
   }
 }
 @media only screen and (min-width: 25.875rem) {
-  section.wear > .center-row {
-    background-position: 110% bottom;
-  }
   .shirt-imgs-wrap {
     height: 240px;
   }
@@ -970,7 +986,7 @@ section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
 }
 @media only screen and (min-width: 26.875rem) {
   section.wear > .center-row {
-    background-position: right bottom;
+    background-position: 110% bottom;
   }
 }
 @media only screen and (min-width: 28.125rem) {
@@ -985,6 +1001,9 @@ section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
   }
 }
 @media only screen and (min-width: 31.25rem) {
+  section.wear > .center-row {
+    background-position: right bottom;
+  }
   .card-img {
     position: absolute;
     left: 0;
@@ -1210,8 +1229,11 @@ section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
   section.wanted .center-row {
     flex-direction: row;
   }
-  section.wanted .center-row div {
+  section.wanted .center-row > div:nth-child(2) {
     margin: 0 25px 0 50px;
+  }
+  section.wanted .center-row > div:nth-child(1) {
+    min-width: 420px;
   }
   section.wanted .center-row div h1 {
     margin-top: 0;
