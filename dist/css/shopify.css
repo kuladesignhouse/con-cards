@@ -13,7 +13,7 @@ html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.2;
-  color: #4c4c4c;
+  color: #3C2816;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -238,11 +238,44 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 .shopify-buy__option-select__label {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 15px;
   margin-bottom: 5px;
   border-bottom: 1px solid #707070;
   max-width: 320px;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 600;
+  line-height: 22px;
+}
+#product > div > div.shopify-buy__product__variant-selectors > .shopify-buy__option-select-wrapper span.size-warning {
+  display: none;
+}
+#product > div > div.shopify-buy__product__variant-selectors > div.shopify-buy__option-select-wrapper:nth-child(2) span.size-warning {
+  margin-left: 8px;
+  display: inline;
+  font-size: 14px;
+  font-weight: 600px;
+  line-height: 20px;
+  vertical-align: top;
+}
+#product > div > div.shopify-buy__product__variant-selectors > div.shopify-buy__option-select-wrapper:nth-child(2) span.size-warning > span:nth-child(1) {
+  font-weight: 800;
+}
+.shopify-buy__product__variant-selectors > .shopify-buy__option-select-wrapper:nth-child(2) span.size-warning > span:nth-child(2) {
+  font-weight: 500;
+}
+#sizing-link {
+  display: block;
+  font-size: 16px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  max-width: 320px;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 600;
+  line-height: 22px;
+  text-decoration: underline;
+  cursor: pointer;
+  pointer-events: all;
 }
 .shopify-buy__btn--parent .shopify-buy__option-select__label {
   cursor: pointer;
@@ -698,6 +731,43 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .is-inline.shopify-buy__cart-toggle {
   border-radius: 3px;
   padding: 5px 10px; }
+/* Modal */
+#sizeModal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.65); /* Black w/ opacity */
+  justify-content: center;
+  align-items: center;
+}
+.modal-content {
+  background-color: transparent;
+  width: 80%;
+  position: relative;
+}
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  top: -100px;
+  position: absolute;
+  top: 4px;
+  right: 14px;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* end modal */
 @media (min-width: 28.75rem) {
   #artist-info > div {
     margin-right: 0px;

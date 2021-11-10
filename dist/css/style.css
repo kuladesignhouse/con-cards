@@ -440,6 +440,13 @@ section.shirts > .center-row:not(:first-child) {
   margin-bottom: 40px;
   padding: 0 10px;
 }
+section.card-store > .center-row > h1 > p {
+  font-size: 23px;
+  margin-left: 0px;
+  padding: 0;
+  font-family: acumin-pro, sans-serif;
+  font-weight: 300;
+}
 a.card {
   text-decoration: none;
   /*margin-right: -10%;
@@ -1051,6 +1058,13 @@ section.product .has-image.shopify-buy__layout-horizontal.shopify-buy__product {
   .cardimg {
     margin-left: 25%;
     width: 115%;
+  }
+}
+@media only screen and (min-width: 40rem) {
+  section.card-store > .center-row > h1 > p {
+    display: inline-block;
+    margin-left: 43px;
+    vertical-align: middle;
   }
 }
 @media only screen and (min-width: 42.5rem) {

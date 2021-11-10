@@ -1,5 +1,17 @@
 let firstLoop = true;
+var modal = document.getElementById("sizeModal");
+function openSizeModal() {
+  modal.style.display = "flex";
+}
+function closeSizeModal() {
+  modal.style.display = "none";
+}
 (function () {
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
   const access_token = "75af2f54e0d6eb2037bc91a0f90fa6db";
   var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
   if (window.ShopifyBuy) {
@@ -388,12 +400,13 @@ let firstLoop = true;
     "templates": {
       "option": '' +
         '<div class="{{data.classes.option.wrapper}}">' +
-          '<p class="{{data.classes.option.label}}">Shirt {{data.name}}</p>' +
+          '<p class="{{data.classes.option.label}}">Shirt {{data.name}}<span class="size-warning">(<span>Sizes run small</span> - <span>order a size up if you like a relaxed fit</span>)</span></p>' +
           '<div>' +
             '{{#data.values}}' +
             '<button {{#data.styleAttr}} {{name}} {{/data.styleAttr}} data-value="{{name}}" data-option={{data.name}} class="{{#disabled}}{{data.classes.option.optionDisabled}}{{/disabled}} {{#selected}}{{data.classes.option.optionSelected}}{{/selected}} {{data.classes.option.option}}" id="btn{{name}}">{{#data.optionName}}{{name}}{{/data.optionName}}</button>' +
             '{{/data.values}}' +
           '</div>' +
+          '<p id="sizing-link" onclick="openSizeModal()" style="text-decoration: underline;">View Sizing Chart</h1>' +
         '</div>',
     },
     "styles": {
@@ -506,13 +519,11 @@ let firstLoop = true;
   }
 },
       });
-
       document.getElementById("cart-wrap").addEventListener('click', event => {
         event.stopPropagation();
         ui.openCart();
       });
       artistInfo();
-
     });
   }
 })();
