@@ -749,6 +749,7 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 .modal-content {
   background-color: transparent;
   width: 80%;
+  max-width: 850px;
   position: relative;
 }
 .close {
